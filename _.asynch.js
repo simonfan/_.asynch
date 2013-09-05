@@ -5,7 +5,7 @@ define(['underscore','jquery'], function(undef, $) {
 	/////////////////////////////
 	_.mixin({
 		// _.asynch(common_obj, func1, func2, func3);
-		asynch: function(options) {
+		asynch: function() {
 			/**
 			 * options:
 			 * 	- tasks
@@ -14,19 +14,17 @@ define(['underscore','jquery'], function(undef, $) {
 			 *	- error handler
 			 */
 
-			var first_arg_is_object = typeof options === 'object',
+			var first_arg_is_object = typeof arguments[0] === 'object',
 				// if the first argument is an object,
 				// then it should be considered an options object.
 				// otherwise, there is no options object
-				options = first_arg_is_object ? options : {},
+				options = first_arg_is_object ? arguments[0] : {},
 
 				// the common object
 				common = options.common || {},
 
 				// the error handler
-				err = options.err || function() {
-
-				},
+				err = options.err || function() {},
 
 				// the list of the names of the tasks to be executed
 				map = options.map,
