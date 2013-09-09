@@ -36,7 +36,7 @@ define(['underscore','jquery'], function(undef, $) {
 				after = options.after || function(){},
 
 				// context in which the functions should be called
-				context = options.context || window,
+				context = options.context || this,
 				lastdefer = true,
 				tasks;
 
